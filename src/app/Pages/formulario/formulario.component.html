@@ -1,0 +1,52 @@
+<h4>Validacion de Formularios<small> Lado del template</small></h4>
+<hr>
+<form autocomplete="off">
+    <div class="col-12">
+        <!--ng model para indicar que el apartado seleccionado forma parte del form-->
+        <!--------------- Name --------------->
+        <div class="form-group row">
+            <label for="name" class="col-2 col-form-label">Name</label>
+            <div class="col-8">
+                <input type="text" class="form-control" required minlength="7" name="name" placeholder="Name">
+            </div>
+        </div>
+        <!--------------- Job --------------->
+        <div class="form-group row">
+            <label for="job" class="col-2 col-form-label">Job</label>
+            <div class="col-8">
+                <input type="text" class="form-control" placeholder="Job" required minlength="7" name="job">
+
+            </div>
+        </div>
+
+        <!--------------- Email --------------->
+        <div class="form-group row">
+            <label for="email" class="col-2 col-form-label">Email</label>
+            <div class="col-8">
+                <input type="text" class="form-control" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="correo">
+            </div>
+        </div>
+
+        <!--------------- Password y checkPassword --------------->
+        <div class="form-group row">
+            <label for="password" class="col-2 col-form-label">Password</label>
+            <div class="col-8">
+                <input type="text" class="form-control" placeholder="Password" name="password">
+            </div>
+        </div>
+
+        <!--------------- Boton enviar --------------->
+        <div class="form-group row">
+            <!-- <label for="nombre" class="col-2 col-form-label">Nombre</label> -->
+            <div class="col-10 input-group">
+                <button type="submit" class="btn btn-outline-success btn-block">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!--alert-->
+    <div class="alert alert-danger col-10">
+        <!--<div class="alert alert-danger" *ngIf="!form.valid && !form.untouched">-->
+        Error de formulario
+    </div>
+</form>
