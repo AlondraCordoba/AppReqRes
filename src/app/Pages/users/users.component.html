@@ -1,1 +1,29 @@
-<p>users works!</p>
+<div class="container">
+    <div class="">
+        <h4 class="mt-3 text-center"> Lista de Usuarios <small>(ReqRes)</small></h4>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col">
+                <table class="table border bg-light shadow rounded">
+                    <thead class="thead-dark">
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">First name</th>
+                        <th class="text-center">Last name</th>
+                        <th class="text-center">Avatar</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of data">
+                            <!--<td>{{user.data.data.id}</td>
+                            <td>{{user.data.data.email}}</td>
+                            <td>{{user.data.data.first_name}}</td>
+                            <td>{{user.data.data.last_name}}</td>
+                            <td><img class="img-thumbnail trackImg" [src]="user.data.data.avatar" alt=""></td>
+                       -->
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
