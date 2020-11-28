@@ -14,4 +14,14 @@ export class ServicesReqResService {
   public getUserDataList(){
     return this.http.get('https://reqres.in/api/users?page=1');
   }
+
+  // tslint:disable-next-line: typedef
+  public search(id: number){
+    if (id === id){
+      return this.http.get(`https://reqres.in/api/users/${id}`).subscribe( id => {
+        console.log(id);
+      });
+    }
+}
+
 }

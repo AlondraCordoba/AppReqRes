@@ -14,8 +14,12 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 // Para trabajar con formularios.
 import { FormsModule } from '@angular/forms';
+// Para manejar/trabajar los formularios de manera reactiva.(formularios reactivos).
+import { ReactiveFormsModule } from '@angular/forms';
 // Para hacer peticiones HTTP es necesario importar ClientModule.
 import { HttpClientModule } from '@angular/common/http';
+import { UserCardComponent } from './Pages/user-card/user-card.component';
+import { SearchComponent } from './Pages/search/search.component';
 
 
 @NgModule({
@@ -24,13 +28,16 @@ import { HttpClientModule } from '@angular/common/http';
     UsersComponent,
     FormularioComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    UserCardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
