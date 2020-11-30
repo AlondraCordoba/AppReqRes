@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styles: [
-  ]
+  styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
   arrayUser: any[] = [];
-  arrayUser2: any[] = [];
   User: any[] = [];
+  arrayUserC: any;
+  UserC: any[] = [];
+
 
   constructor(private sRR: ServicesReqResService, private _aRouter: Router) {
   }
@@ -24,6 +25,11 @@ export class UsersComponent implements OnInit {
       this.arrayUser = data.data;
       console.log(data.data);
     });
+
+     this.arrayUserC = JSON.parse(localStorage.getItem('value'));
+    console.log(this.arrayUserC);
   }
+
+ 
 
 }

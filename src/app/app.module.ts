@@ -18,8 +18,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 // Para hacer peticiones HTTP es necesario importar ClientModule.
 import { HttpClientModule } from '@angular/common/http';
+
 import { UserCardComponent } from './Pages/user-card/user-card.component';
 import { SearchComponent } from './Pages/search/search.component';
+import { FooterComponent } from './Pages/shared/footer/footer.component';
 
 
 @NgModule({
@@ -30,8 +32,9 @@ import { SearchComponent } from './Pages/search/search.component';
     NavbarComponent,
     HomeComponent,
     UserCardComponent,
-    SearchComponent
-  ],
+    SearchComponent,
+    FooterComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

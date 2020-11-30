@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicesReqResService } from '../../Services/servicesReqRes/services-req-res.service';
 
 @Component({
   selector: 'app-user-card',
@@ -11,9 +12,11 @@ export class UserCardComponent implements OnInit {
   @Output() selectorUser: EventEmitter<number>;
 
 
-  constructor(private _aRouter: Router) { }
+  constructor(private _aRouter: Router, private sRR: ServicesReqResService) { }
 
   ngOnInit(): void {
   }
+ 
+
 
 }

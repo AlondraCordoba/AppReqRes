@@ -1,6 +1,16 @@
 <br><br><br>
 <div class="row">
     <div class="col-12">
-        <input class="form-control shadow" type="text" #term placeholder="Buscar usuarios">
+        <input class="form-control shadow" type="text" #id (keyup)="buscar(id.value)" placeholder="Buscar usuarios (id)">
+    </div>
+</div>
+<br><br>
+<div *ngIf="error" class="alert alert-danger col-5">
+    <h5>ERROR: <small>{{mensajeError}}</small></h5>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <app-user-card [PadreUser]="data"></app-user-card>
     </div>
 </div>

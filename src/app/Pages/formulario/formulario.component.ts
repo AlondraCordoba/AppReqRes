@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { ValPasswordService } from '../../Services/valPassword/val-password.service';
+import { ServicesReqResService } from '../../Services/servicesReqRes/services-req-res.service';
 
 
 @Component({
@@ -49,7 +50,7 @@ export class FormularioComponent implements OnInit {
      return (pass1 === pass2) ? false : true;
     }
 
-  constructor(private fb: FormBuilder, private sV: ValPasswordService) { this.createForm(); }
+  constructor(private fb: FormBuilder, private sV: ValPasswordService, private sRR: ServicesReqResService) { this.createForm(); }
 
   ngOnInit(): void {
   }
@@ -74,6 +75,12 @@ export class FormularioComponent implements OnInit {
   // tslint:disable-next-line: typedef
 enviar(){
   console.log(this.form);
+  this.sRR.createUser(this.form.value).subscribe(value => {
+    this.sRR.setUser(value);
+    const token = this.form.value;
+    this.sRR.setToken(token);
+    location.reload();
+  });
   // Mensajes de error, pero tambien nos servira para hacer un POST (evitar enviarlo si es que la informacion es incorrecta).
   if (this.form.invalid){
     /* solo form controls sin form group
