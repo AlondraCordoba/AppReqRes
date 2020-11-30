@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs/internal/Observable";
 
 import { map } from 'rxjs/operators';
 
@@ -10,15 +9,13 @@ import { map } from 'rxjs/operators';
 export class ServicesReqResService {
 
   constructor(private http: HttpClient) {  }
-  headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json"
-  });
+  
 
   // Get para acceder a la lista de usuarios de la pagina uno
   // GET LIST USER
   // tslint:disable-next-line: typedef
   public getUserDataList(){
-    return this.http.get('https://reqres.in/api/users?page=2');
+    return this.http.get('https://reqres.in/api/users?page=1');
   }
 
   // Get para busqueda (GET SINGLE USER)
@@ -26,7 +23,7 @@ export class ServicesReqResService {
   public search(id){
     if (id === id){
       return this.http.get(`https://reqres.in/api/users/${id}`).pipe(map(data => {
-        console.log(data);
+        // console.log(data);
         return data;
       }));
     }
@@ -35,6 +32,7 @@ export class ServicesReqResService {
 // tslint:disable-next-line: typedef
 public createUser(form){
   return this.http.post('https://reqres.in/api/users/', form).pipe(map(value => value));
+  //return form.push(value); 
 }
 
 // tslint:disable-next-line: typedef
@@ -52,7 +50,7 @@ setUser(form){
   localStorage.setItem("value", user_string);
 }
 
-public deleteUser(id){
+public deleteUser(id : number){
   return this.http.delete(`https://reqres.in/api/users/${id}`);
 }
 

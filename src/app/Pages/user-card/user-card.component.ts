@@ -17,6 +17,11 @@ export class UserCardComponent implements OnInit {
   ngOnInit(): void {
   }
  
-
+  delete(id : number){
+    this.sRR.deleteUser(this.PadreUser.id).subscribe(
+      response =>  {
+        this.PadreUser = this.PadreUser.filter(value => value.id !== id);
+    });
+  }
 
 }

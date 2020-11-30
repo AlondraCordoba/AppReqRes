@@ -15,13 +15,9 @@ export class FormularioComponent implements OnInit {
 
 // Getters de los controles
   // tslint:disable-next-line: typedef
-  get validFirstName(){
+  get validName(){
     // console.log(!this.form.get('nombre').pristine);
-     return this.form.get('firstName').invalid && this.form.get('firstName').touched;
-   }
-     // tslint:disable-next-line: typedef
-   get validLastName(){
-     return this.form.get('lastName').invalid && this.form.get('lastName').touched;
+     return this.form.get('name').invalid && this.form.get('name').touched;
    }
    // tslint:disable-next-line: typedef
    get validJob(){
@@ -59,8 +55,7 @@ export class FormularioComponent implements OnInit {
    createForm(){
     this.form = this.fb.group({
       id: ['', [Validators.required, Validators.minLength(1)] ],
-      firstName: ['', [Validators.required, Validators.minLength(4)] ],
-      lastName: ['', [Validators.required, Validators.minLength(4)] ],
+      name: ['', [Validators.required, Validators.minLength(4)] ],
       job: ['', [Validators.required, Validators.minLength(4)] ],
       email: ['', [Validators.required,  Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')] ],
       // para validacion personalizada
@@ -74,12 +69,12 @@ export class FormularioComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
 enviar(){
-  console.log(this.form);
+  console.log(this.form.value);
   this.sRR.createUser(this.form.value).subscribe(value => {
     this.sRR.setUser(value);
     const token = this.form.value;
     this.sRR.setToken(token);
-    location.reload();
+    //location.reload();
   });
   // Mensajes de error, pero tambien nos servira para hacer un POST (evitar enviarlo si es que la informacion es incorrecta).
   if (this.form.invalid){
